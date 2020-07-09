@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:localmeapp/globals.dart' as globals;
+
+import 'package:localmeapp/imports.dart';
+
+class CheckLogin extends StatefulWidget {
+  @override
+  _CheckLoginState createState() => _CheckLoginState();
+}
+
+class _CheckLoginState extends State<CheckLogin> {
+
+  void _checkLoginState() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String email = prefs.get("Email");
+    String password = prefs.get("Password");
+    if(email == null || email == ""){
+      if(password == null || password == ""){
+        Navigator.pushReplacement(context, new MaterialPageRoute(builder: (BuildContext context) => new LoginScreen()));
+      }
+    } else {
+      try {
+        final firebaseUser = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+        globals.loggedInUser = firebaseUser.user;
+        if(globals.loggedInUser.isEmailVerified == true) {
+          Navigator.pushReplacement(context, new MaterialPageRoute(builder: (BuildContext context) => new HomeScreen()));
+        } else {
+          Navigator.pushReplacement(context, new MaterialPageRoute(builder: (BuildContext context) => new LoginScreen()));
+        }
+      } catch (e) {
+        print(e);
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _checkLoginState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(child: CircularProgressIndicator()));
+  }
+}

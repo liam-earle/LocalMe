@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "350635888098",
+    "firebase_url": "https://localme-7f2ed.firebaseio.com",
+    "project_id": "localme-7f2ed",
+    "storage_bucket": "localme-7f2ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350635888098:android:557867364d29b135a83dbb",
+        "android_client_info": {
+          "package_name": "info.localme.localmeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350635888098-du45crj74p0orm8jdl93hian9uscgq19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg1u9OJASEEkGAA3DxAnXn1NMMiWeares"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350635888098-du45crj74p0orm8jdl93hian9uscgq19.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "350635888098-klam0i75h080dl5hag9m6drfdfqru4b6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "info.localme.localme"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
