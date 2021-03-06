@@ -1,3 +1,4 @@
+import 'package:focused_menu/modals.dart';
 import 'package:localmeapp/imports.dart';
 import 'package:localmeapp/globals.dart' as globals;
 
@@ -6,14 +7,14 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
-
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   TabController tabController;
 
   @override
   void initState() {
     super.initState();
-    tabController = new TabController(length: 4, vsync: this);
+    tabController = new TabController(length: 3, vsync: this);
   }
 
   @override
@@ -24,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         child: TabBar(
           controller: tabController,
           tabs: <Widget>[
-            new Tab(icon: Icon(Icons.local_library),),
+            new Tab(icon: Icon(Icons.local_library)),
             new Tab(icon: Icon(Icons.location_city)),
-            new Tab(icon: Icon(Icons.people)),
+            //new Tab(icon: Icon(Icons.people)),
             new Tab(icon: Icon(Icons.person)),
           ],
         ),
@@ -36,19 +37,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         children: <Widget>[
           TodaysPaperScreen(),
           SubscriptionsFeedScreen(),
-          FriendsFeedScreen(),
+          //FriendsFeedScreen(),
           ProfileScreen(),
         ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: new FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.blue,
-        clipBehavior: Clip.none,
-        onPressed: () {
-          
-        },
       ),
     );
   }
